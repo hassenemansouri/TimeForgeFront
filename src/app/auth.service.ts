@@ -20,7 +20,7 @@ interface LoginResponse {
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = `https://31e0-102-31-147-197.ngrok-free.app/timeforge/auth`;  // Base URL for your API (adjust accordingly)
+  private apiUrl = `${environment.apiUrl}/timeforge/auth`;  // Base URL for your API (adjust accordingly)
   private currentUserSubject = new BehaviorSubject<any>(null);
 
   private readonly USER_KEY = 'user';
@@ -105,7 +105,7 @@ export class AuthService {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
     return this.http.post(
-      `${environment.apiUrl}/auth/reset-password`,
+      `${this.apiUrl}/reset-password`,
       { token, password: newPassword },
       { headers, withCredentials: true }
     );

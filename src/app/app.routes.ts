@@ -84,6 +84,7 @@ export const routes: Routes = [
       { path: 'signup', component: SignUpComponent },
       { path: 'home', component: LandingComponent },
       { path: 'forgetpassword', component: ForgotPasswordComponent },
+      { path: 'menu', component: MenuComponent},
       { path: '', redirectTo: 'home', pathMatch: 'full' }
     ]
   },
@@ -159,7 +160,6 @@ export const routes: Routes = [
         { path: 'prediction', component: TimeForgePredectionComponent},
         { path: 'prediction_reward', component: RewardPredictComponent},
         { path: 'workflows/prediction', component: PredictWorkflowComponent},
-        { path: 'menu', component: MenuComponent},
         { path: 'projectDash', component: ProjectsDashComponent},
         { path: 'goalDash', component: GoalsDashComponent},
         { path: 'StrategicDash', component: StrategicDashComponent},

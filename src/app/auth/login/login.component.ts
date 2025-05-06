@@ -41,7 +41,9 @@ export class LoginComponent implements OnInit {
 
   }
 
-
+  log():void {
+    this.router.navigate(['/menu'], { replaceUrl: true });
+  }
   login(): void {
     if (this.username && this.password) {
       this.authService.login({ email: this.username, password: this.password }).subscribe(

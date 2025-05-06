@@ -85,31 +85,7 @@ export const routes: Routes = [
       { path: 'home', component: LandingComponent },
       { path: 'forgetpassword', component: ForgotPasswordComponent },
       { path: 'menu', component: MenuComponent},
-      { path: '', redirectTo: 'home', pathMatch: 'full' }
-    ]
-  },
-
-  // AUTHENTICATED ROUTES (With sidebar)
-  {
-    path: '',
-    component: PrivateLayoutComponent,
-    canActivate: [AuthGuard], // Protect all below routes
-      children: [
-        {
-          path: 'login',
-          component: LoginComponent,
-          canActivate: [NoAuthGuardService] // <-- Blocks if already logged in
-        },
-        {
-          path: 'signup',
-          component: SignUpComponent,
-          canActivate: [NoAuthGuardService] // <-- Blocks if already logged in
-        },
-        { path: 'reset-password', component: ResetPasswordComponent },
-        { path: 'users', component: UserDetailComponent },
-        {path: 'users/:id', component: UserDetailComponent, title: 'User Details'},
-        { path: 'users/edit/:id', component: UserUpdateComponent },
-        { path: 'dashboard', component: DashboardComponent },
+      { path: 'dashboard', component: DashboardComponent },
         { path: 'workspaces', component: ListWorkspacesComponent },
         { path: 'workspaces/add', component: WorkspaceFormComponent },
         { path: 'workspaces/edit/:id', component: WorkspaceFormComponent },
@@ -167,7 +143,32 @@ export const routes: Routes = [
         { path: 'PerformanceManagement', component: PerformanceManagementComponent},
         { path: 'WorkflowDash', component: WorkflowDashComponent},
         { path: 'WorkspaceDash', component: WorkspaceDashComponent },
-        { path: 'RewardDash', component: RewardDashComponent }
+        { path: 'RewardDash', component: RewardDashComponent },
+      { path: '', redirectTo: 'home', pathMatch: 'full' }
+    ]
+  },
+
+  // AUTHENTICATED ROUTES (With sidebar)
+  {
+    path: '',
+    component: PrivateLayoutComponent,
+    canActivate: [AuthGuard], // Protect all below routes
+      children: [
+        {
+          path: 'login',
+          component: LoginComponent,
+          canActivate: [NoAuthGuardService] // <-- Blocks if already logged in
+        },
+        {
+          path: 'signup',
+          component: SignUpComponent,
+          canActivate: [NoAuthGuardService] // <-- Blocks if already logged in
+        },
+        { path: 'reset-password', component: ResetPasswordComponent },
+        { path: 'users', component: UserDetailComponent },
+        {path: 'users/:id', component: UserDetailComponent, title: 'User Details'},
+        { path: 'users/edit/:id', component: UserUpdateComponent }
+        
 
 
 //RewardDashComponent
